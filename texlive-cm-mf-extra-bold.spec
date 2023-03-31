@@ -1,6 +1,6 @@
 Name:		texlive-cm-mf-extra-bold
 Version:	54512
-Release:	1
+Release:	2
 Summary:	Extra Metafont files for CM
 Group:		Publishing
 URL:		http://www.ctan.org/tex-archive/macros/latex/contrib/cm-mf-extra-bold
