@@ -1,36 +1,22 @@
-Name:		texlive-cm-mf-extra-bold
-Version:	54512
-Release:	2
+%global tl_name cm-mf-extra-bold
+%global tl_revision 54512
+
+Name:		texlive-%{tl_name}
+Version:	%{tl_revision}
+Release:	1
 Summary:	Extra Metafont files for CM
 Group:		Publishing
-URL:		https://www.ctan.org/tex-archive/macros/latex/contrib/cm-mf-extra-bold
+URL:		https://www.ctan.org/tex-archive/fonts/cm/mf-extra/bold
 License:	gpl pd
-Source0:	http://mirrors.ctan.org/systems/texlive/tlnet/archive/cm-mf-extra-bold.r%{version}.tar.xz
+Source0:	https://mirrors.ctan.org/systems/texlive/tlnet/archive/cm-mf-extra-bold.r%{tl_revision}.tar.xz
 BuildArch:	noarch
+BuildSystem:	texlive
 BuildRequires:	texlive-tlpkg
-Requires(pre):	texlive-tlpkg
-Requires(post):	texlive-kpathsea
+%texlive_base_requires
+Provides:	texlive(%{tl_name}) = %{tl_revision}
 
 %description
-The bundle provides bold versions of cmcsc, cmex, cmtex and
-cmtt fonts (all parts of the standard computer modern font
-distribution), as Metafont base files.
+The bundle provides bold versions of cmcsc, cmex, cmtex and cmtt fonts
+(all parts of the standard computer modern font distribution), as
+Metafont base files.
 
-%prep
-%autosetup -p1 -c
-
-%build
-
-%install
-rm -rf tlpkg
-mkdir -p %{buildroot}%{_texmfdistdir}
-cp -a * %{buildroot}%{_texmfdistdir}
-
-%files
-%{_texmfdistdir}/fonts/tfm/public/cm-mf-extra-bold
-%doc %{_texmfdistdir}/fonts/source/public/cm-mf-extra-bold
-
-%post -p %{_sbindir}/texlive.post
-
-%postun
-[ "$1" -eq 0 ] && %{_sbindir}/texlive.post
