@@ -11,8 +11,6 @@ License:	gpl pd
 Source0:	https://mirrors.ctan.org/systems/texlive/tlnet/archive/cm-mf-extra-bold.r%{tl_revision}.tar.xz
 BuildArch:	noarch
 BuildSystem:	texlive
-BuildRequires:	texlive-tlpkg
-%texlive_base_requires
 Provides:	texlive(%{tl_name}) = %{tl_revision}
 
 %description
